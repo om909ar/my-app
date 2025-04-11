@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [azkar, setAzkar] = useState('');
+
+  const morningAzkar = `
+    (1) أَعُوذُ بِاللهِ مِنْ الشَّيْطَانِ الرَّجِيمِ...
+    (3) الأخلاص والمعوذتين...
+    (1) أَصْـبَحْنا وَأَصْـبَحَ المُـلْكُ لله...
+  `;
+
+  const eveningAzkar = `
+    1. أَمْسَيْنا وَأَمْسَى المـلكُ للهِ...
+    2. اللّهـمَّ أَنْتَ رَبِّـي...
+  `;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="title">أذكار المسلم</h1>
+
+      <div className="buttonsWrapper">
+        <button className="cardButton" onClick={() => setAzkar(morningAzkar)}>
+          📿 أذكار الصباح
+        </button>
+        <button className="cardButton" onClick={() => setAzkar(eveningAzkar)}>
+          🌙 أذكار المساء
+        </button>
+      </div>
+      
+      <div className="azkar">
+        <p>{azkar}</p>
+      </div>
     </div>
   );
 }
